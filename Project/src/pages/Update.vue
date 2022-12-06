@@ -2,14 +2,14 @@
     <div>
         <NavbarVue></NavbarVue>
         <FormVue></FormVue>
-        <SuccessForm class="d-none"></SuccessForm>
+        <UpdatedForm class="d-none"></UpdatedForm>
         <CopyrightVue></CopyrightVue>
 
     </div>
 </template>
 
 <script>
-import SuccessForm from "../components/SuccessForm.vue"
+import UpdatedForm from "../components/UpdatedForm.vue"
 import NavbarVue from '@/components/Navbar.vue';
 import FormVue from '@/components/Form.vue';
 import CopyrightVue from '@/components/Copyright.vue';
@@ -20,7 +20,7 @@ export default {
         NavbarVue,
         FormVue,
         CopyrightVue,
-        SuccessForm,
+        UpdatedForm,
         
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="m-4">
-        <router-link to="/" class="justify-content-start"><button class="btn bg-primary text-light font-weight-bold">Kembali</button></router-link>
+        <router-link to="/" class="justify-content-start" v-show="!success"><button class="btn bg-primary text-light font-weight-bold">Kembali</button></router-link>
         <div class="row justify-content-center mt-4">
         <div class="col-6">
             <!-- Form Section -->
@@ -93,7 +93,9 @@
 
                 <button type="submit" class="btn bg-primary my-2 text-light">{{ buttonValue }}</button>
             </form>
-            <SuccessForm v-show="success"></SuccessForm>
+            <SuccessForm v-show="test"></SuccessForm>
+            <UpdatedFormVue v-show="test1"></UpdatedFormVue>
+
         </div>
     </div>
     </div>
@@ -103,6 +105,7 @@
 <script>
 import shippingService from "../services/shippingService.js"
 import SuccessForm from "./SuccessForm.vue"
+import UpdatedFormVue from "./UpdatedForm.vue"
 
 
 export default {
@@ -122,6 +125,7 @@ export default {
                 success : false,
                 buttonValue : null,
                 judulValue : null,
+                test : null,
             }
         },
         methods : {
@@ -133,6 +137,7 @@ export default {
                         .then(response => {
                             console.log(response.data);
                             this.success = true;
+                            this.test = true;
                         })
                         .catch(e => {
                             console.log(e);
@@ -142,6 +147,7 @@ export default {
                         .then(response => {
                             console.log(response.data);
                             this.success = true;
+                            this.test1 = true;
                         })
                         .catch(e => {
                             console.log(e);
@@ -163,7 +169,8 @@ export default {
             
         },
         components : {
-            SuccessForm
+            SuccessForm,
+            UpdatedFormVue
         },
         mounted(){
             if (this.$route.params.id > 0) {
